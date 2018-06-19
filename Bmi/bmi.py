@@ -2,7 +2,7 @@
 from gpiozero import LED
 from time import sleep
 
-# Establish a pin connection for 3 LEDs (red 17, yellow 27 and green 22)
+# Establish a pin connection for 3 LEDs (red 17, yellow 27 and green 22).
 # Note the numbers above come from pinout.xyz for 3 consecutive BCM pins
 # Used for LEDs.
 red_led = LED(17)       # Red LED used for Underweight and Obese categories
