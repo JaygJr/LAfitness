@@ -2,6 +2,10 @@
 from time import sleep
 from gpiozero import LED
 
+# ToDo: fix issue with bad input - if anything is other than positive integers.
+# ToDo: the calculation of the BMI should be done as a function
+# ToDo: Change the individual LED lights to the RGB LED.
+
 # Establish a pin connection for 3 LEDs (red 17, yellow 27 and green 22).
 # Note the numbers above come from pinout.xyz for 3 consecutive BCM pins
 # Used for LEDs.
