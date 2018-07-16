@@ -1,9 +1,20 @@
+#!/usr/bin/env python3
 # Include the library functions to use LEDs.
 from time import sleep
 from gpiozero import LED
+
 # ToDo: fix issue with bad input - if anything is other than positive integers.
 # ToDo: the calculation of the BMI should be done as a function
-# ToDo: Change the individual LED lights to the RGB LED.
+# ToDo: Change individual LEDs to  RGB LED
+
+def convert_lbs_to_kg(lbs):
+    return lbs*0.4536
+
+def convert_inches_to_meters(inches):
+    return inches/39.37
+
+def calculate_bmi(kg, meters):
+    return kg / (meters**2)
 
 # Establish a pin connection for 3 LEDs (red 17, yellow 27, green 22
 #                                        and blue 23)
@@ -24,19 +35,15 @@ lbs = int(input("Enter your weight in lbs as a whole number: "))
 
 # Convert weight from lbs to kg.
 # kg = lbs * 0.4536    (approximately)
-kg = lbs*0.4536
+kg = convert_lbs_to_kg(lbs)
 
-# Get height in inches from user (this will be changed to feet and inches once it works for inches alone).
+# Get height in inches from user (will get converted later).
 inches = int(input("Enter your height in inches as a whole number: "))
 
 # Convert height from inches to meters.
-meters = inches / 39.37
+meters = convert_inches_to_meters(inches)
 
-# print("lbs= " + str(lbs) + "  kg= " + str(kg) + " inches= " + str(inches) + " meters= " + str(meters))
-
-# Compute BMI.
-# Formula is: BMI = Weight (kg) / (Height (m))2
-bmi = (kg / (meters**2))
+bmi = calculate_bmi(kg, meters)
 
 # Display result to user.
 # For the LED lights:
